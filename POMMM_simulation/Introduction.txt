@@ -1,0 +1,39 @@
+Function introduction : 
+
+1. Rayleigh_Sommerfeld_Diffraction.py : Function for Rayleigh_Sommerfel (RS) diffraction
+
+2. Rayleigh_Sommerfeld_Diffraction_1d.py : Function for 1-d_RS diffraction
+
+3. Huygens_Fresnel_Diffraction.py : Function for Huygens_Fresnel (HF) diffraction
+
+4. POMMM_FFT.py : POMMM based on FFT
+
+5. POMMM_FFT_A.py : POMMM based on process of RS and HF, but change the function to single FFT
+
+6. POMMM_RS_PI.py : POMMM based on RS simulation, and the imaging lenses are perfect (not simple quadratic phase)
+
+7. POMMM_HF.py : POMMM based on HF simulation
+
+8. POMMM_RS.py : POMMM based on RS simulation
+
+Summary:
+
+Since POMMM is an optical computing paradigm designed based on the properties of Fourier transforms, its only inherent error arises from sidelobes under ideal Fourier transform conditions. However, in practical optical propagation simulations, factors such as optical components (e.g., lenses) and the approximations in propagation theory can lead to imperfections in optical Fourier transforms and imaging.
+
+To address this, we provide simulation programs based on different methods, including:
+
+4. Direct FFT Simulation (an idealized model).
+
+5. FFT-Based Simplified Simulation (considering the effects of apertures and SLM pixels, but simplifying the propagation process with an equivalent FFT).
+
+6. Accurate angular Spectrum Method (Rayleigh-Sommerfeld diffraction without any approximations) under Perfect Imaging Conditions (where the lens achieves precise phase compensation during imaging, but not perfect in focusing steps).
+
+7. Fresnel-Approximated Angular Spectrum Method (approximating Rayleigh-Sommerfeld diffraction as Huygens-Fresnel diffraction).
+
+8. Accurate Angular Spectrum Method (Rayleigh-Sommerfeld diffraction without any approximations), and the lenses are simple quadratic phase, not perfect.
+
+Given that the system operates at a sub-meter scale, these methods yield highly consistent results. Therefore, when computational resources are limited, the most simplified simulation strategy can be chosen without significant loss of accuracy.
+
+During the simulation process, various parameters can be adjusted based on the actual device specifications, including the total number of points, focal length, wavelength, and pixel size. Theoretically, a larger aperture and greater spatial separation between points lead to more accurate computational results.
+
+

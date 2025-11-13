@@ -4,13 +4,19 @@ import time
 import math
 import matplotlib.pyplot as plt
 
-indim1 = 3
-indim2 = 576
-odim2 = 16384
+# Adjust the dimensions of the input and output matrices.
+indim1 = 50
+indim2 = 50
+odim2 = 50
+
+# Number of repetitions placed on the SLM.
+rep = 100
+
+
+
 input = torch.rand((1,indim1,indim2))
 
 weight = torch.rand(1,odim2,indim2)
-rep = 20
 N = indim2 * rep
 M = odim2
 
@@ -80,4 +86,5 @@ res = res_temp.transpose(1, 2)[:, :out_row, :odim2]
 
 err = torch.mean(torch.abs(res - bmm_result)/ (bmm_result+1e-8))
 
-print(err)
+# the mean point-wise percentage error between standard matrix multiplication and the POMMM results
+print('percentage error',err.item())
